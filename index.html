@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Player Assignment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        li {
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            padding: 6px 0px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900">
+    <header class="bg-[url('hero.png')] bg-cover bg-center pt-32 pb-32 h-auto w-100 bg-no-repeat">
+        <section class="header bg-blend-lighten">
+            <div class="text-center p-5">
+                <h1 class="text-7xl font-extrabold text-amber-500">Select your Best Cricket Player</h1>
+                <p class="text-white font-medium text-2xl py-8">You can select your best 5 player from the list and
+                    challage
+                    your friends and win a big PRIZE!</p>
+                <button
+                    class="text-white font-medium rounded-lg py-3 px-5 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-amber-500 hover:to-amber-500">Challange
+                    Now!</button>
+            </div>
+        </section>
+    </header>
+
+    <main id="main" class="my-5">
+        <section class="player-section">
+            <div class="grid grid-cols-3 gap-4 mx-12">
+                <div class="players-columns grid grid-cols-3 gap-4 col-span-2">
+                    <div class="players-info new text-white text-center pb-5 bg-cyan-900	rounded-lg">
+                        <img src="shakib.png" alt="" class="h-80 m-auto">
+                        <h2 id="shakib" class="text-3xl pt-2">Shakib Al Hasan</h2>
+                        <p class="text-1xl py-2">Total Runs: 15560</p>
+                        <button onclick="getPlayer('shakib')" id="shakib-select-btn"
+                            class="select-btn py-2 px-5 font-medium bg-amber-500 rounded">Select</button>
+                    </div>
+                    <div class="text-white text-center pb-5 bg-cyan-900	rounded-lg">
+                        <img src="tamim.png" alt="" class="h-80 m-auto">
+                        <h2 id="tamim" class="text-3xl pt-2">Tamim Iqbal</h2>
+                        <p class="text-1xl py-2">Total Runs: 18740</p>
+                        <button onclick="getPlayer('tamim')"
+                            class="select-btn py-2 px-5 font-medium bg-amber-500 rounded">Select</button>
+                    </div>
+                    <div class="text-white text-center pb-5 bg-cyan-900	rounded-lg">
+                        <img src="mushfiq.png" alt="" class="h-80 m-auto">
+                        <h2 id="mushfiq" class="text-3xl pt-2">Mushfiqur Rahim</h2>
+                        <p class="text-1xl py-2">Total Runs: 16160</p>
+                        <button onclick="getPlayer('mushfiq')"
+                            class="select-btn py-2 px-5 font-medium bg-amber-500 rounded">Select</button>
+                    </div>
+                    <div class="text-white text-center pb-5 bg-cyan-900	rounded-lg">
+                        <img src="riyad.png" alt="" class="h-80 m-auto">
+                        <h2 id="riyad" class="text-3xl pt-2">Mahmadullah Riyad</h2>
+                        <p class="text-1xl py-2">Total Runs: 11510</p>
+                        <button onclick="getPlayer('riyad')"
+                            class="select-btn py-2 px-5 font-medium bg-amber-500 rounded">Select</button>
+                    </div>
+                    <div class="text-white text-center pb-5 bg-cyan-900	rounded-lg">
+                        <img src="liton.png" alt="" class="h-80 m-auto">
+                        <h2 id="liton" class="text-3xl pt-2">Liton Kumer</h2>
+                        <p class="text-1xl py-2">Total Runs: 9960</p>
+                        <button onclick="getPlayer('liton')"
+                            class="select-btn py-2 px-5 font-medium bg-amber-500 rounded">Select</button>
+                    </div>
+                    <div class="text-white text-center pb-5 bg-cyan-900	rounded-lg">
+                        <img src="miraz.png" alt="" class="h-80 m-auto">
+                        <h2 id="miraz" class="text-3xl pt-2">Mehedy Hasan</h2>
+                        <p class="text-1xl py-2">Total Runs: 6796</p>
+                        <button onclick="getPlayer('miraz')"
+                            class="select-btn py-2 px-5 font-medium bg-amber-500 rounded">Select</button>
+                    </div>
+
+                </div>
+                <div>
+                    <div class="selected bg-cyan-900 rounded p-5 h-96 mb-5">
+                        <h1 class="text-3xl font-medium text-white text-center">Selected Players</h1>
+                        <hr class="mt-4 w-52 m-auto">
+                        <ol id="selected-player-ul">
+
+                        </ol>
+                    </div>
+                    <div class="accounting bg-cyan-900 rounded p-5 h-auto pb-8 mb-5 text-center">
+                        <h1 class="text-3xl font-medium text-white text-center">Budget</h1>
+                        <div id="budget" class="py-5">
+                            <span class="text-white text-2xl">Per Player</span>
+                            <input id="player-sallery" type="text" value="0" class="rounded px-5 py-2">
+                            <button id="calculate"
+                                class="my-5 py-4 px-8 font-medium bg-amber-500 rounded w-4/5">Calculate</button>
+                        </div>
+                        <div class="text-white text-2xl">
+                            <span>Player Expenses: $</span>
+                            <span id="expenses">00</span>
+                        </div> <br>
+                        <span class="text-white text-2xl">Manager</span>
+                        <input id="manager-expense" type="text" value="00" class="rounded px-5 py-2"><br /><br />
+                        <span class="text-white text-2xl">Coach</span>
+                        <input id="coach-expense" type="text" value="00" class="rounded px-5 py-2"><br />
+                        <button id="total-calculation"
+                            class="my-5 py-4 px-8 font-medium bg-blue-500 text-white rounded w-4/5">Calculate
+                            Total</button> <br>
+                        <span class="text-white text-2xl">Total Expenses: $<span id="total-expenses">00</span></span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
